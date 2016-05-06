@@ -18,7 +18,7 @@ static NSString *const kUrlStr=@"http://BigPi.me";
     
     NSError *error;
     ONOXMLDocument *doc=[ONOXMLDocument HTMLDocumentWithData:data error:&error];
-    ONOXMLElement *postsParentElement= [doc firstChildWithXPath:@"//*[@id='posts']"];
+    ONOXMLElement *postsParentElement= [doc firstChildWithXPath:@"/html/body/div[2]/div[1]"];
     [postsParentElement.children enumerateObjectsUsingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL * _Nonnull stop) {
 //        NSLog(@"%@",element);
         Post *post=[Post postWithHtmlStr:element];
